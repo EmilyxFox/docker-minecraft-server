@@ -220,6 +220,7 @@ fi
 
 if isTrue "${USE_MEOWICE_FLAGS}"; then
   JVM_XX_OPTS="${JVM_XX_OPTS}
+  -XX:+UnlockExperimentalVMOptions
   -XX:+UnlockDiagnosticVMOptions
   -XX:G1SATBBufferEnqueueingThresholdPercent=30
   -XX:G1ConcMarkStepDurationMillis=5
@@ -284,6 +285,7 @@ if isTrue "${USE_MEOWICE_GRAALVM_FLAGS}"; then
   if [[ $java_major_version -gt 23 ]]; then
     log "Java 24 or higher detected, using modified GraalVM flags"
     JVM_XX_OPTS="${JVM_XX_OPTS}
+    -XX:+UnlockExperimentalVMOptions
     -XX:+UseFastJNIAccessors
     -XX:+UseInlineCaches
     -XX:+SegmentedCodeCache
